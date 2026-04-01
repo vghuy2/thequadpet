@@ -11,11 +11,13 @@ use Illuminate\View\View;
 
 class AppointmentController extends Controller
 {
-    public function create(): View
+    public function create(Request $request): View
     {
         $services = Service::all();
 
-        return view('appointments.create', compact('services'));
+        $selectedServiceId = $request->input('service_id');
+
+        return view('appointments.create', compact('services', 'selectedServiceId'));
     }
 
     public function store(Request $request): RedirectResponse

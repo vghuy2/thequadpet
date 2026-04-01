@@ -22,7 +22,6 @@
             <h6>Cập nhật trạng thái</h6>
             <form method="post" action="{{ route('admin.orders.updateStatus', $order) }}">
                 @csrf
-                @method('PUT')
                 <div class="input-group">
                     <select name="status" class="form-select">
                         @foreach(['pending','confirmed','shipping','completed','cancelled'] as $st)
